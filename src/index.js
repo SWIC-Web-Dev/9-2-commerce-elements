@@ -11,3 +11,5 @@ const saleCatalog = generateSaleCatalog(catalog, 10);
 const catalogHTML = saleCatalog
   .map((product) => ProductCard(product))
   .join("\n");
+
+console.log(catalogHTML);

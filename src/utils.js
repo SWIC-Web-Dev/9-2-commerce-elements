@@ -15,8 +15,14 @@ export function formatPrice(price) {
  */
 export function generateSaleCatalog(catalog, discountPct) {
   return catalog.map((product) => {
-    product.price -= product.price * (discountPct / 100);
-    return product;
+    // Return a new product object.
+    return {
+      // Spread the original product object properties/values.
+      ...product,
+
+      // Overwrite the price property with a discounted price.
+      price: product.price - product.price * (discountPct / 100),
+    };
   });
 }
 
