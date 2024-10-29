@@ -3,8 +3,6 @@ export function calcPriceWithTax(price, taxRate) {
 }
 
 export function formatPrice(price) {
-  console.log("received a price", price.toFixed(2), typeof price);
-
   return `$${price.toFixed(2)}`;
 }
 
@@ -18,7 +16,6 @@ export function formatPrice(price) {
 export function generateSaleCatalog(catalog, discountPct) {
   return catalog.map((product) => {
     product.price -= product.price * (discountPct / 100);
-    product.price = formatPrice(product.price);
     return product;
   });
 }
@@ -29,12 +26,8 @@ export function generateSaleCatalog(catalog, discountPct) {
  * @returns {Object} - A new cart object.
  */
 export function createCart() {
-  /**
-   * TODO: Implement this function.
-   *
-   * It should return a new cart object with the following properties:
-   *
-   * - cartId: A unique identifier for the cart. HINT: Look up 'Crypto: randomUUID()' on MDN.
-   * - items: It's nothing but an empty array.
-   */
+  return {
+    id: crypto.randomUUID(),
+    items: [],
+  };
 }

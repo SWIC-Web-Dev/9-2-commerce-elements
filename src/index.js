@@ -1,3 +1,4 @@
+import ProductCard from "./components/product/card.js";
 import catalog from "./db/catalog.js";
 import { generateSaleCatalog } from "./utils.js";
 
@@ -5,4 +6,8 @@ import { generateSaleCatalog } from "./utils.js";
 
 const saleCatalog = generateSaleCatalog(catalog, 10);
 
-console.info("Catalog after sale:", saleCatalog);
+// console.info("Catalog after sale:", saleCatalog);
+
+const catalogHTML = saleCatalog
+  .map((product) => ProductCard(product))
+  .join("\n");
