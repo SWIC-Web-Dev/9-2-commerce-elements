@@ -3,6 +3,8 @@ export function calcPriceWithTax(price, taxRate) {
 }
 
 export function formatPrice(price) {
+  console.log("received a price", price.toFixed(2), typeof price);
+
   return `$${price.toFixed(2)}`;
 }
 
@@ -14,8 +16,9 @@ export function formatPrice(price) {
  * @returns {Object} - A new array of product objects. Each product object has a `price` property that has been discounted.
  */
 export function generateSaleCatalog(catalog, discountPct) {
-  discountPct.map((product) => {
-    product.price += product.pice - discountPct;
+  return catalog.map((product) => {
+    product.price -= product.price * (discountPct / 100);
+    product.price = formatPrice(product.price);
     return product;
   });
 }
