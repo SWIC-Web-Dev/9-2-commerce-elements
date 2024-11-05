@@ -14,16 +14,11 @@ export function formatPrice(price) {
  * @returns {Object} - A new array of product objects. Each product object has a `price` property that has been discounted.
  */
 export function generateSaleCatalog(catalog, discountPct) {
-  return catalog.map((product) => {
-    // Return a new product object.
-    return {
-      // Spread the original product object properties/values.
-      ...product,
+  return catalog.map((product) => ({
+    ...product,
 
-      // Overwrite the price property with a discounted price.
-      price: product.price - product.price * (discountPct / 100),
-    };
-  });
+    price: product.price - product.price * (discountPct / 100),
+  }));
 }
 
 /**
